@@ -77,7 +77,8 @@ kmbox_net_port = 1984
 kmbox_net_uuid = DEADC0DE
 ```
 
-For Arduino wiring and COM setup, see **[Arduino PC connection](arduino.md)**.
+For Arduino wiring and COM setup, see **[Arduino PC connection](arduino.md)**.  
+For KMBOX (Net/A), see **[KMBOX connection](kmbox.md)**.
 
 See also [Input methods](../../engine/docs/guides/input-methods.md) and [Input method config](../../engine/docs/config.md#input-method).
 
@@ -100,6 +101,7 @@ See also [Input methods](../../engine/docs/guides/input-methods.md) and [Input m
 Related docs:
 
 - [Arduino PC connection](arduino.md)
+- [KMBOX connection](kmbox.md)
 - [UDP capture over LAN](../../engine/docs/guides/udp-capture.md)
 - [Capture config](../../engine/docs/config.md#capture)
 - [Input methods](../../engine/docs/guides/input-methods.md)

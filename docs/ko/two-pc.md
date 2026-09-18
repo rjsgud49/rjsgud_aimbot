@@ -114,9 +114,10 @@ kmbox_net_port = 1984
 kmbox_net_uuid = DEADC0DE
 ```
 
-아두이노 기준 배선·COM 설정은 **[아두이노 PC 연결](arduino.md)** 을 보세요.
+아두이노 기준 배선·COM 설정은 **[아두이노 PC 연결](arduino.md)** 을 보세요.  
+KMBOX(Net/A)는 **[KMBOX 연결](kmbox.md)** 을 보세요.
 
-또는 `KMBOX_A`, `MAKCU`, `RP2350`, `TEENSY41_HID` 등 실제 연결한 장치에 맞게 설정합니다.  
+또는 `MAKCU`, `RP2350`, `TEENSY41_HID` 등 실제 연결한 장치에 맞게 설정합니다.  
 상세: [Input methods](../../engine/docs/guides/input-methods.md), [config — Input](../../engine/docs/config.md#input-method)
 
 ---
@@ -141,6 +142,7 @@ kmbox_net_uuid = DEADC0DE
 관련 문서:
 
 - [아두이노 PC 연결](arduino.md)
+- [KMBOX 연결](kmbox.md)
 - [UDP 캡처 상세](../../engine/docs/guides/udp-capture.md)
 - [캡처 설정](../../engine/docs/config.md#capture)
 - [입력 방식](../../engine/docs/guides/input-methods.md)

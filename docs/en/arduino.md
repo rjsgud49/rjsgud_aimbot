@@ -122,7 +122,7 @@ Notes:
 - Match logic level (3.3V/5V) and baud rate.
 - For capture on two PCs use `udp_capture` or `virtual_camera` — see [Two-PC guide](two-pc.md).
 
-Network devices such as `KMBOX_NET` are often simpler cabling for two-PC input.
+Network devices such as `KMBOX_NET` are often simpler cabling for two-PC input — see [KMBOX guide](kmbox.md).
 
 ---
 

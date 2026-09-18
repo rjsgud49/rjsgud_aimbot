@@ -49,6 +49,20 @@ arduino_enable_keys = false
 
 Full wiring and checklist: [Arduino PC connection (EN)](../../../docs/en/arduino.md) · [한국어](../../../docs/ko/arduino.md)
 
+## KMBOX Setup
+
+- **`KMBOX_NET`:** Ethernet to the helper PC, USB `controlled PC` port to the game PC. Copy IP / port / MAC from the box LCD into `kmbox_net_ip`, `kmbox_net_port`, `kmbox_net_uuid`.
+- **`KMBOX_A`:** USB with `kmbox_a_pidvid` as 8 hex chars `PPPPVVVV` (PID then VID).
+
+```ini
+input_method = KMBOX_NET
+kmbox_net_ip = 10.42.42.42
+kmbox_net_port = 1984
+kmbox_net_uuid = DEADC0DE
+```
+
+Full wiring and checklist: [KMBOX connection (EN)](../../../docs/en/kmbox.md) · [한국어](../../../docs/ko/kmbox.md)
+
 ## Razer Setup
 
 Use:

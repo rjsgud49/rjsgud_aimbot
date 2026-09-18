@@ -121,7 +121,7 @@ arduino_enable_keys = false
 - 전압(3.3V/5V)과 보드레이트를 맞추세요.
 - 캡처는 투컴 문서대로 `udp_capture` 또는 `virtual_camera`를 씁니다. → [투컴 가이드](two-pc.md)
 
-네트워크형 장치(`KMBOX_NET` 등)가 배선이 더 단순한 경우도 많습니다.
+네트워크형 장치(`KMBOX_NET` 등)가 배선이 더 단순한 경우도 많습니다. → [KMBOX 가이드](kmbox.md)
 
 ---
 

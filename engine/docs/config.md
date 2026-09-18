@@ -82,6 +82,7 @@ The receiver expects an MJPEG byte stream over UDP. Each frame must be a normal 
 For FFmpeg sender examples, see [UDP capture over LAN](guides/udp-capture.md).
 For a full second-PC layout (capture card or UDP plus mouse bridge), see [Two-PC setup](../../docs/en/two-pc.md) · [한국어](../../docs/ko/two-pc.md).
 Arduino serial/HID wiring: [Arduino guide](../../docs/en/arduino.md) · [한국어](../../docs/ko/arduino.md).
+KMBOX Net/A wiring: [KMBOX guide](../../docs/en/kmbox.md) · [한국어](../../docs/ko/kmbox.md).
 
 ### Circle FOV
 

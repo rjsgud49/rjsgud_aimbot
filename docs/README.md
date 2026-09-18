@@ -6,6 +6,7 @@
 |---|---|---|
 | Two-PC (external capture + inference) | [투컴](ko/two-pc.md) | [Two-PC](en/two-pc.md) |
 | Arduino PC connection | [아두이노 연결](ko/arduino.md) | [Arduino setup](en/arduino.md) |
+| KMBOX connection | [KMBOX 연결](ko/kmbox.md) | [KMBOX setup](en/kmbox.md) |
 
 Engine reference (English):
 

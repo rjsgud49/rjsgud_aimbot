@@ -33,6 +33,7 @@ Two-PC moves capture and inference off the game PC onto a helper PC running `ai.
 | Docs index | [docs](docs/README.md) | [docs](docs/README.md) |
 | Two-PC | [투컴](docs/ko/two-pc.md) | [Two-PC](docs/en/two-pc.md) |
 | Arduino connection | [아두이노](docs/ko/arduino.md) | [Arduino](docs/en/arduino.md) |
+| KMBOX connection | [KMBOX](docs/ko/kmbox.md) | [KMBOX](docs/en/kmbox.md) |
 
 ## Notes
 

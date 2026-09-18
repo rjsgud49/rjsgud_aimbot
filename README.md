@@ -33,6 +33,7 @@
 | 문서 인덱스 | [docs](docs/README.md) | [docs](docs/README.md) |
 | 투컴 | [투컴](docs/ko/two-pc.md) | [Two-PC](docs/en/two-pc.md) |
 | 아두이노 연결 | [아두이노](docs/ko/arduino.md) | [Arduino](docs/en/arduino.md) |
+| KMBOX 연결 | [KMBOX](docs/ko/kmbox.md) | [KMBOX](docs/en/kmbox.md) |
 
 ## 참고
 
