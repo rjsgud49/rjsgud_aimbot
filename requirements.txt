@@ -1,7 +1,4 @@
-# 권장: Python 3.12 사용 (py -3.12 -m pip install -r requirements.txt)
-# Python 3.14 등 최신 버전은 일부 패키지 미지원
-# cuda_python - 선택, 필요시 별도 설치
-# bettercam - 선택, Bettercam 캡처 사용 시 pip install bettercam
+# Python 3.12 권장: py -3.12 -m pip install -r requirements.txt
 numpy
 pywin32
 screeninfo

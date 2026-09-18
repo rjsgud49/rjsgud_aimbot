@@ -1,63 +1,144 @@
-<div align="center">
+# Aimbot GUI (rjsgud49)
 
-# Sunone Aimbot
-[![Python Version](https://img.shields.io/badge/Python-3.12.0-FFD43B?logo=python)](https://github.com/SunOner/sunone_aimbot)
-[![License MIT](https://badgen.net/github/license/SunOner/sunone_aimbot)](https://github.com/SunOner/sunone_aimbot/blob/main/LICENSE)
-[![Github stars](https://img.shields.io/github/stars/SunOner/sunone_aimbot?color=ffb500)](https://github.com/SunOner/sunone_aimbot)
-[![Discord server](https://badgen.net/discord/online-members/sunone)](https://discord.gg/37WVp6sNEh)
-  <p>
-    <a href="https://github.com/SunOner/sunone_aimbot/releases" target="_blank">
-      <img width="75%" src="https://raw.githubusercontent.com/SunOner/sunone_aimbot/main/media/one.gif"></a>
-  </p>
-</div>
+개인용 AI 에임 보조 프로그램입니다.  
+원본은 [SunOner/sunone_aimbot](https://github.com/SunOner/sunone_aimbot) (MIT) 기반입니다.
 
-## Overview
-Sunone Aimbot is an AI-powered aim bot for first-person shooter games. It leverages the YOLOv8 and YOLOv10 models, PyTorch, and various other tools to automatically target and aim at enemies within the game. The AI model in repository has been trained on more than 30,000 images from popular first-person shooter games like Warface, Destiny 2, Battlefield (all series), Fortnite, The Finals, CS2 and more.
-> [!WARNING]
-> Use it at your own risk, we do not guarantee that you may be blocked!
+> 사용은 본인 책임입니다. 게임 이용약관 위반·제재 가능성이 있습니다.
 
-> [!NOTE]
-> The recommended graphics card for starting and more productive and stable operation starts with the rtx 20 series.
+---
 
-## Requirements
-Before you get started, make sure you have the following prerequisites installed and pay attention to the versions in [Tested Environment](https://github.com/SunOner/sunone_aimbot?tab=readme-ov-file#tested-environment) block, this may cause errors in launching the aimbot.
+## 요구 사항
 
-- [Config options](https://github.com/SunOner/sunone_aimbot_docs/blob/main/config/config.md)
-- [Install guide](https://github.com/SunOner/sunone_aimbot_docs/blob/main/install/helper.md)
-- [Questions](https://github.com/SunOner/sunone_aimbot_docs/blob/main/questions/questions.md)
-- [Arduino setup](https://github.com/SunOner/HID_Arduino)
-- [Arduino Logitech G-series](https://github.com/SunOner/usb-host-shield-mouse_for_ai_aimbot)
-- [Discord server](https://discord.gg/sunone)
-- [AI Models docs](https://github.com/SunOner/sunone_aimbot_docs/blob/main/ai_models/ai_models.md)
+| 항목 | 권장 |
+|------|------|
+| OS | Windows 10 / 11 |
+| Python | **3.12** (`py -3.12`) |
+| GPU | NVIDIA (CUDA) 권장. CPU만으로는 실전 사용이 어렵습니다. |
 
-<br></br>
-- To launch the aimbot after all installations, start run_ai.bat or type `py run.py`.
+---
 
-# Use the new C++ version of the AI-Aimbot!
-- [Sunone_aimbot_cpp](https://github.com/SunOner/sunone_aimbot_cpp): The Python version is good, but C++ is even better. It has an overlay, is faster, and much more. Currently, it is updated much more frequently than the Python version. It's better to use the C++ version.
+## 설치
 
-## Working environment:
-<table>
-  <thead><tr><th>Windows</th><td>10 and 11(priority)</td></thead>
-  <thead><tr><th>Python:</th><td>3.12.0</td></tr></thead>
-  <thead><tr><th>CUDA:</th><td>12.8</td></tr></thead>
-  <thead><tr><th>TensorRT:</th><td>10.13.0.35</td></tr></thead>
-  <thead><tr><th>Ultralytics:</th><td>8.3.174</td></tr></thead>
-  <thead><tr><th>GitHub AI Model:</th><td>sunxds_0.5.6 (YOLOv10)</td></tr></thead>
-  <thead><tr><th>Supporters AI Model:</th><td>sunxds_0.7.8 (YOLOv12)</td></tr></thead>
-</table>
+### 1) Python 3.12
 
-## Notes / Recommendations
-- Limit the maximum value of frames per second in the game in which you will use it. And also do not set the screen resolution to high. Do not overload the graphics card.
-- Do not set high graphics settings in games.
-- Limit the browser (try not to watch YouTube while playing and working AI at the same time, for example (of course if you don't have a super duper graphics card)) and so on, which loads the video card.
-- Try to use TensorRT for acceleration. `.pt` model is good, but does not have as much speed as `.engine`.
-- Turn off the cv2 debug window, this saves system resources.
-- Do not increase the object search window resolution, this may affect your search speed.
-- If you have started the application and nothing happens, it may be working, close it with the F2 key and change the `show_window` option to `True` in the file [config.ini](https://github.com/SunOner/sunone_aimbot/blob/main/config.ini) to make sure that the application is working.
+1. https://www.python.org/downloads/release/python-31210/
+2. **Windows installer (64-bit)** 설치
+3. **"Add python.exe to PATH"** 체크
 
-## Support the project
-[Boosty](https://boosty.to/sunone) [Patreon](https://www.patreon.com/sunone).
+확인:
 
-## License
-This project is licensed under the MIT License. See **[LICENSE](https://github.com/SunOner/sunone_aimbot/blob/main/LICENSE)** for details
+```bat
+py -3.12 --version
+```
+
+### 2) 라이브러리
+
+프로젝트 폴더에서 **`install.bat`** 더블클릭  
+또는:
+
+```bat
+py -3.12 -m pip install -r requirements.txt
+```
+
+### 3) GPU 사용 시 (NVIDIA)
+
+```bat
+py -3.12 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+```
+
+그다음 `config.ini`의 `[AI]`에서:
+
+```ini
+AI_device = 0
+```
+
+(`0` = 첫 번째 GPU, `cpu` = CPU)
+
+---
+
+## 실행
+
+| 파일 | 설명 |
+|------|------|
+| **`run_gui.bat`** | GUI로 실행 (권장) |
+| `run_ai.bat` | GUI 없이 `run.py`만 실행 |
+
+GUI에서 **에임봇 시작**을 누르면 백그라운드로 동작하고, 로그는 GUI에 표시됩니다.
+
+### 단축키 (기본)
+
+| 키 | 동작 |
+|----|------|
+| 우클릭 | 에임 보조 (누르는 동안) |
+| F2 | 종료 |
+| F3 | 일시정지 |
+| F4 | `config.ini` 다시 읽기 |
+
+GUI **단축키** 탭에서 변경 후 **config.ini 저장**하면 됩니다.
+
+---
+
+## 주요 설정 (`config.ini`)
+
+### 탐지 / AI
+
+| 옵션 | 설명 |
+|------|------|
+| `detection_window_width/height` | 탐지 영역 크기 (기본 320, 너무 키우면 느려짐) |
+| `AI_model_name` | `models/` 안 모델 파일 |
+| `AI_model_image_size` | 320 빠름 / 640 정확 |
+| `AI_conf` | 탐지 신뢰도 (0.2~0.35) |
+| `AI_device` | `0`(GPU) 또는 `cpu` |
+| `disable_tracker` | `True`면 트래커 끔 (조금 더 가벼움) |
+
+### 조준
+
+| 옵션 | 설명 |
+|------|------|
+| `body_y_offset` | 몸 조준 시 위로 올리는 비율 (머리 쪽이면 0.4~0.6) |
+| `disable_headshot` | `False` = 머리 우선 |
+| `disable_prediction` | `True` = 예측 없이 바로 조준 |
+
+### 마우스 속도
+
+| 옵션 | 설명 |
+|------|------|
+| `mouse_sensitivity` | **낮을수록** 더 빠르게 붙음 |
+| `mouse_min/max_speed_multiplier` | 속도 배율 |
+| `mouse_dpi` / `mouse_fov_*` | DPI·FOV 보정값 |
+
+자세한 값은 GUI에서 단축키를 바꾸고, 나머지는 `config.ini`를 직접 수정한 뒤 **F4**로 리로드하면 됩니다.
+
+---
+
+## 폴더 구조
+
+```
+├── run_gui.bat      ← 실행 (GUI, 권장)
+├── run_ai.bat       ← 실행 (CLI)
+├── install.bat      ← 라이브러리 설치
+├── gui_main.py
+├── run.py
+├── config.ini
+├── requirements.txt
+├── models/          ← AI 모델
+└── logic/           ← 핵심 코드
+```
+
+---
+
+## 문제 해결
+
+| 증상 | 해결 |
+|------|------|
+| `No module named ...` | `install.bat` 다시 실행 (`py -3.12`) |
+| CUDA / torch 오류 | GPU면 CUDA PyTorch 설치 + `AI_device = 0` |
+| 너무 느림 | GPU 사용, `AI_model_image_size = 320`, 디버그 창 끄기 |
+| GUI가 바로 꺼짐 | `py -3.12 gui_main.py`로 에러 확인. 락 파일이면 `%TEMP%\sunone_aimbot_gui.lock` 삭제 |
+| 이미 실행 중 | 기존 GUI/에임봇 종료 후 다시 실행 |
+
+---
+
+## 라이선스
+
+MIT License. 원본 저작권은 SunOner 프로젝트에 있으며, 본 저장소는 개인 수정본입니다.
