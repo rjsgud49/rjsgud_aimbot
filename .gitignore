@@ -174,3 +174,6 @@ engine/build/
 engine/packages/
 engine/sunone_aimbot_2/modules/
 engine/**/TensorRT*/
+
+# Local release archives
+/*.zip
