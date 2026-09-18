@@ -64,5 +64,6 @@ Set `udp_ip` to a specific sender IPv4 address only after the stream is working.
 
 Related docs:
 
+- [Two-PC setup](two-pc.md)
 - [Capture config](../config.md#capture)
 - [Capture diagnostics](capture-diagnostics.md)

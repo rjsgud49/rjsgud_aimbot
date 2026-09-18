@@ -30,6 +30,25 @@ Treat this as an input-chain problem, not a model or capture problem:
 
 For games that block the standard Win32 path, a separate supported input device is usually required. Hardware-style methods such as Arduino/RP2350/Teensy, KMBOX, or MAKCU send movement through an external bridge instead of relying on normal Windows synthetic mouse events. The app does not create this device for you; it must be connected, configured, and visible to the selected `input_method`.
 
+## Arduino Setup
+
+Use:
+
+```ini
+input_method = ARDUINO
+arduino_port = COM3
+arduino_baudrate = 115200
+arduino_16_bit_mouse = false
+arduino_enable_keys = false
+```
+
+`ai.exe` opens the COM port and sends text lines such as `mX,Y`, `c`, `p`, and `r`. The board firmware must turn those into HID mouse output. Your normal wireless mouse is not intercepted; Arduino is an extra input device.
+
+- **One PC:** plug the board into the same machine that runs `ai.exe`, set `arduino_port` to that COM number, and close the Arduino IDE first.
+- **Two PC:** put USB HID on the game PC and bring UART to the helper PC with USB–TTL (or use a network bridge such as `KMBOX_NET` instead).
+
+Full wiring and checklist: [Arduino PC connection (EN)](../../../docs/en/arduino.md) · [한국어](../../../docs/ko/arduino.md)
+
 ## Razer Setup
 
 Use:

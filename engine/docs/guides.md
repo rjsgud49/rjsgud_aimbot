@@ -15,6 +15,9 @@ This file is the central index for practical setup and diagnosis. Keep detailed 
 
 | Guide | Use when |
 |---|---|
+| [Two-PC setup](guides/two-pc.md) | You want capture and inference on a second PC (capture card or UDP). |
+| [Arduino PC connection](../../docs/en/arduino.md) | You are wiring Arduino serial/HID for one PC or two PC. |
+| [Docs language index](../../docs/README.md) | Switch between Korean and English user guides. |
 | [UDP capture over LAN](guides/udp-capture.md) | You want to receive MJPEG frames over UDP from another PC or process. |
 | [Capture diagnostics](guides/capture-diagnostics.md) | You are reading `[CaptureDiag]` output or checking CPU/GPU capture paths. |
 | [Circle FOV](guides/circle-fov.md) | You are configuring the circular FOV limiter and overlay preview. |

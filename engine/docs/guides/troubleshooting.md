@@ -12,6 +12,7 @@ Use this order when something feels wrong:
 More specific guides:
 
 - [Backend selection and checks](backends.md)
+- [Two-PC setup](two-pc.md)
 - [UDP capture](udp-capture.md)
 - [Capture diagnostics](capture-diagnostics.md)
 - [Input methods](input-methods.md)

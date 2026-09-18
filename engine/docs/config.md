@@ -80,6 +80,8 @@ The receiver expects an MJPEG byte stream over UDP. Each frame must be a normal 
 `udp_ip = 0.0.0.0` is the recommended diagnostic setting because it accepts any sender. Set `udp_ip` to a specific sender IPv4 address only when you want to ignore packets from other machines. The app listens on `udp_port`; make sure that UDP port is allowed through Windows Firewall on the receiver PC.
 
 For FFmpeg sender examples, see [UDP capture over LAN](guides/udp-capture.md).
+For a full second-PC layout (capture card or UDP plus mouse bridge), see [Two-PC setup](../../docs/en/two-pc.md) · [한국어](../../docs/ko/two-pc.md).
+Arduino serial/HID wiring: [Arduino guide](../../docs/en/arduino.md) · [한국어](../../docs/ko/arduino.md).
 
 ### Circle FOV
 
