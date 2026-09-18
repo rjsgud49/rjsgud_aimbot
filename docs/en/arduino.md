@@ -74,6 +74,18 @@ Goal:
 
 A single Leonardo USB plug puts both HID and COM on **one** PC. For two PCs, run HID on the game PC and bring UART to the helper PC with USB–TTL.
 
+### Where to buy a USB–TTL adapter
+
+Prefer a **CP2102** module with TXD/RXD/GND (3.3V/5V selectable if possible) plus Dupont jumper wires. CH340 modules also work.
+
+| Store | Link |
+|---|---|
+| Coupang (KR search) | [CP2102 USB TTL](https://www.coupang.com/np/search?q=CP2102+USB+TTL) · [CH340 USB TTL](https://www.coupang.com/np/search?q=CH340+USB+TTL) |
+| Amazon | [HiLetgo CP2102 + jumpers](https://www.amazon.com/HiLetgo-CP2102-Converter-Adapter-Downloader/dp/B00LODGRV8) |
+| Waveshare | [CP2102 USB UART Board (Type-C)](https://www.waveshare.com/product/cp2102-usb-uart-board-type-c.htm) |
+
+If Windows needs a driver, install Silicon Labs [CP210x VCP drivers](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers). Stock and pricing change often—use the links above to pick a current listing.
+
 ```text
 Helper PC                       Game PC
 ┌─────────────┐                ┌─────────────┐

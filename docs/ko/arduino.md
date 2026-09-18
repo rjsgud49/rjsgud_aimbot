@@ -73,6 +73,18 @@ arduino_enable_keys = false
 
 Leonardo 한 포트만 쓰면 HID와 COM이 **같은 PC**에만 붙습니다. 투컴에서는 USB–TTL로 시리얼만 연산 PC에 빼는 방식이 일반적입니다.
 
+### USB–TTL 구매
+
+**CP2102** 계열(TXD/RXD/GND, 가능하면 3.3V·5V 선택) + Dupont 점퍼선이면 됩니다. CH340도 대체 가능합니다.
+
+| 구매처 | 링크 |
+|---|---|
+| 쿠팡 (국내, 검색) | [CP2102 USB TTL](https://www.coupang.com/np/search?q=CP2102+USB+TTL) · [CH340 USB TTL](https://www.coupang.com/np/search?q=CH340+USB+TTL) |
+| Amazon (해외) | [HiLetgo CP2102 + 점퍼](https://www.amazon.com/HiLetgo-CP2102-Converter-Adapter-Downloader/dp/B00LODGRV8) |
+| Waveshare (제조사) | [CP2102 USB UART Board (Type-C)](https://www.waveshare.com/product/cp2102-usb-uart-board-type-c.htm) |
+
+드라이버가 필요하면 Silicon Labs [CP210x Windows Driver](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers)를 설치하세요. 재고·가격은 수시로 바뀌니 위 검색/제품 페이지에서 확인하면 됩니다.
+
 ```text
 연산 PC                         게임 PC
 ┌─────────────┐                ┌─────────────┐
