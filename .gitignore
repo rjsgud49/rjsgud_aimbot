@@ -151,13 +151,15 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 runs/
-tools/
-utils/
+/tools/
+/utils/
+.vscode/
 
 # Local Python source / portable installs (do not commit)
 Python-*/
 Python-*.*/
 screenshots/
+legacy_python/**/__pycache__/
 
 # Node
 helper_ui/node_modules/
@@ -166,3 +168,9 @@ helper_ui/dist/
 # Local locks / caches
 *.lock
 !package-lock.json
+
+# C++ engine build artifacts (sunone_aimbot_2)
+engine/build/
+engine/packages/
+engine/sunone_aimbot_2/modules/
+engine/**/TensorRT*/
