@@ -331,9 +331,29 @@ endif()
 
 add_executable(ai ${AIMBOT_SOURCES})
 
+# Embed Windows EXE icon from repo-root icon.ico (generated from icon.png).
+set(AIMBOT_ICON_ICO "${CMAKE_SOURCE_DIR}/../icon.ico")
+if(WIN32 AND EXISTS "${AIMBOT_ICON_ICO}")
+    file(TO_NATIVE_PATH "${AIMBOT_ICON_ICO}" _aimbot_icon_native)
+    string(REPLACE "\\" "\\\\" _aimbot_icon_escaped "${_aimbot_icon_native}")
+    set(_aimbot_icon_rc "${CMAKE_CURRENT_BINARY_DIR}/ai_icon.rc")
+    file(WRITE "${_aimbot_icon_rc}" "#define IDI_ICON1 101\nIDI_ICON1 ICON \"${_aimbot_icon_escaped}\"\n")
+    target_sources(ai PRIVATE "${_aimbot_icon_rc}")
+    target_compile_definitions(ai PRIVATE AIMBOT_HAS_APP_ICON=1 IDI_ICON1=101)
+endif()
+
 set_target_properties(ai PROPERTIES
     OUTPUT_NAME "ai"
 )
+
+# No console window when launched from Explorer / CPP_run.bat.
+# Keep main() as entry (do not use a separate WinMain).
+if(WIN32)
+    set_target_properties(ai PROPERTIES WIN32_EXECUTABLE TRUE)
+    if(MSVC)
+        target_link_options(ai PRIVATE "/ENTRY:mainCRTStartup")
+    endif()
+endif()
 
 if(MSVC)
     set_target_properties(ai PROPERTIES

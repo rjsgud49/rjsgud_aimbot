@@ -1215,6 +1215,10 @@ bool CreateOverlayWindow()
         overlayHeight = h;
     }
 
+    HICON appIcon = NULL;
+#if defined(AIMBOT_HAS_APP_ICON)
+    appIcon = (HICON)::LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+#endif
     WNDCLASSEX wc = {
         sizeof(WNDCLASSEX),
         CS_CLASSDC,
@@ -1222,12 +1226,12 @@ bool CreateOverlayWindow()
         0L,
         0L,
         GetModuleHandle(NULL),
-        NULL,
+        appIcon,
         NULL,
         NULL,
         NULL,
         _T("Chrome"),
-        NULL
+        appIcon
     };
     ::RegisterClassEx(&wc);
 
@@ -1491,15 +1495,5 @@ void OverlayThread()
     CleanupDeviceD3D();
     ::DestroyWindow(g_hwnd);
     ::UnregisterClass(_T("Chrome"), GetModuleHandle(NULL));
-}
-
-int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
-    _In_opt_ HINSTANCE hPrevInstance,
-    _In_ LPTSTR    lpCmdLine,
-    _In_ int       nCmdShow)
-{
-    std::thread overlay(OverlayThread);
-    overlay.join();
-    return 0;
 }
 
