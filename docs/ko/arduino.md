@@ -5,6 +5,9 @@
 `input_method = ARDUINO` 일 때 `ai.exe`는 **시리얼(COM)** 로 보드에 명령을 보내고, 보드는 **HID 마우스**처럼 PC에 상대 이동을 넣습니다.  
 평소 쓰는 무선 마우스를 가로채지 않습니다. 무선 수신기는 그대로 두고, 아두이노가 **추가 마우스**로 동작합니다.
 
+> **G HUB 스크립트 + 무선 유지:** → [입력 2개 가이드](dual-mouse.md)  
+> **방식 전체 비교:** → [입력 방식 비교](input-methods.md)
+
 ## 준비물
 
 - HID 마우스로 쓸 수 있는 보드 (예: Leonardo, Pro Micro, Micro 계열)
@@ -125,10 +128,11 @@ arduino_enable_keys = false
 
 ---
 
-## 구성 3 — USB Host Shield (참고)
+## 구성 3 — USB Host Shield
 
-구버전 Python 쪽은 USB Host Shield 라이브러리·디버그 설정을 점검하는 안내가 있었습니다.  
-C++ `ARDUINO` 경로 자체는 **로컬 COM 시리얼**입니다. Host Shield를 쓰면 보드·펌웨어가 마우스 패스스루/주입을 담당하고, PC↔보드 통신은 여전히 시리얼(또는 해당 펌웨어 방식)로 맞춰야 합니다.
+동글을 Shield에 꽂아 **마우스 1개로 합치는** 방식입니다. G HUB 스크립트는 보통 동작하지 않습니다.
+
+→ 자세한 배선·MYMOUSEINFO·무선 디버그: **[Host Shield 가이드](arduino-host-shield.md)**
 
 ---
 

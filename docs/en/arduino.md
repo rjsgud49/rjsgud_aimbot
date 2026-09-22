@@ -6,6 +6,9 @@ With `input_method = ARDUINO`, `ai.exe` sends commands over a **serial (COM)** p
 
 This does **not** relay your wireless mouse. Keep the wireless receiver on the game PC; Arduino is a separate input device.
 
+> **Keep G HUB scripts + wireless:** → [Dual input guide](dual-mouse.md)  
+> **Compare all methods:** → [Input methods](input-methods.md)
+
 ## What you need
 
 - A board that can act as a USB HID mouse (for example Leonardo, Pro Micro, Micro-class)
@@ -126,10 +129,11 @@ Network devices such as `KMBOX_NET` are often simpler cabling for two-PC input �
 
 ---
 
-## Setup 3 — USB Host Shield (reference)
+## Setup 3 — USB Host Shield
 
-Older Python tooling mentioned USB Host Shield library/debug checks.  
-The C++ `ARDUINO` path still talks over **local COM serial**. If you use a Host Shield, the shield/firmware handles mouse passthrough or injection; PC↔board traffic must still match the serial (or firmware) interface you configure.
+Plug the dongle into the shield to **merge** into one mouse device. G HUB scripts usually stop working on that path.
+
+→ Wiring, MYMOUSEINFO, wireless debug: **[Host Shield guide](arduino-host-shield.md)**
 
 ---
 
