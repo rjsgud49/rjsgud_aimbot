@@ -156,7 +156,7 @@ static bool drawScreenshotButtonRows()
 
 static void uploadDebugFrame(const cv::Mat& bgr)
 {
-    if (bgr.empty()) return;
+    if (bgr.empty() || !g_pd3dDevice || !g_pd3dDeviceContext) return;
 
     if (!g_debugTex || bgr.cols != texW || bgr.rows != texH)
     {
@@ -185,7 +185,22 @@ static void uploadDebugFrame(const cv::Mat& bgr)
     }
 
     static cv::Mat rgba;
-    cv::cvtColor(bgr, rgba, cv::COLOR_BGR2RGBA);
+    try
+    {
+        if (bgr.channels() == 4)
+            cv::cvtColor(bgr, rgba, cv::COLOR_BGRA2RGBA);
+        else if (bgr.channels() == 3)
+            cv::cvtColor(bgr, rgba, cv::COLOR_BGR2RGBA);
+        else
+            return;
+    }
+    catch (const cv::Exception&)
+    {
+        return;
+    }
+
+    if (!g_debugTex || rgba.empty() || rgba.cols != texW || rgba.rows != texH)
+        return;
 
     D3D11_MAPPED_SUBRESOURCE ms;
     if (SUCCEEDED(g_pd3dDeviceContext->Map(g_debugTex, 0,
@@ -330,9 +345,30 @@ void draw_debug_frame()
             latestFrame.copyTo(frameCopy);
     }
 
+    static cv::Mat lastGoodPreview;
+    if (!frameCopy.empty())
+        frameCopy.copyTo(lastGoodPreview);
+    else if (!lastGoodPreview.empty())
+        lastGoodPreview.copyTo(frameCopy);
+
+    if (frameCopy.empty())
+    {
+        ImGui::Spacing();
+        ImGui::TextColored(ImVec4(1.0f, 0.55f, 0.35f, 1.0f), "캡처 프레임 없음");
+        ImGui::TextWrapped(
+            "duplication_api가 화면을 못 읽고 있습니다. 캡처 방식을 winrt로 바꾸거나, "
+            "다른 캡처 프로그램(OBS 게임 캡처 등)을 끈 뒤 다시 시도하세요.");
+        ImGui::TextDisabled("캡처 FPS: %d", captureFps.load());
+        return;
+    }
+
     uploadDebugFrame(frameCopy);
 
-    if (!g_debugSRV) return;
+    if (!g_debugSRV)
+    {
+        ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), "미리보기 텍스처 업로드 실패");
+        return;
+    }
 
     {
         const auto row = OverlayUI::BeginSettingRow("디버그 배율");
@@ -340,8 +376,11 @@ void draw_debug_frame()
         OverlayUI::EndSettingRow(row);
     }
 
+    ImGui::TextDisabled("미리보기 %dx%d  |  캡처 FPS %d", texW, texH, captureFps.load());
+
     ImVec2 image_size(texW * debug_scale, texH * debug_scale);
     ImGui::Image((ImTextureID)(intptr_t)g_debugSRV, image_size);
+
 
     ImVec2 image_pos = ImGui::GetItemRectMin();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();

@@ -340,7 +340,7 @@ cv::Mat DuplicationAPIScreenCapture::GetNextFrameCpu()
         return cv::Mat();
 
     FrameContext frameCtx;
-    HRESULT hr = m_ddaManager->AcquireFrame(frameCtx, 0);
+    HRESULT hr = m_ddaManager->AcquireFrame(frameCtx, 33);
     if (hr == DXGI_ERROR_WAIT_TIMEOUT)
     {
         return cv::Mat();
